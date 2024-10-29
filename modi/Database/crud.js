@@ -2,37 +2,37 @@ const { db } = require('./firebaseconfig'); // Importar Firebase
 const { collection, addDoc, getDoc, getDocs, doc, deleteDoc, updateDoc } = require('firebase/firestore'); // Firestore funciones
 
 // Función para obtener todos los elementos
-const getAllItems = async () => {
-    const querySnapshot = await getDocs(collection(db, "songs")); // Cambia "items" por "songs"
+const getAllMovies = async () => {
+    const querySnapshot = await getDocs(collection(db, "movies")); // Cambia "songs" por "movies"
     return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
 // Función para agregar un nuevo elemento
-const addItem = async (songName, artistName, coverUrl) => {
-    await addDoc(collection(db, "songs"), { songName, artistName, coverUrl }); // Agrega nuevos campos
+const addMovie = async (caratula, genero, movieId, title, year) => {
+    await addDoc(collection(db, "movies"), { caratula, genero, movieId, title, year }); // Agrega nuevos campos
 };
 
 // Función para eliminar un elemento
-const deleteItem = async (id) => {
-    await deleteDoc(doc(db, "songs", id));
+const deleteMovie = async (id) => {
+    await deleteDoc(doc(db, "movies", id));
 };
 
 // Función para obtener un elemento específico
-const getItemById = async (id) => {
-    const itemSnapshot = await getDoc(doc(db, "songs", id));
-    return { id: itemSnapshot.id, ...itemSnapshot.data() };
+const getMovieById = async (id) => {
+    const movieSnapshot = await getDoc(doc(db, "movies", id));
+    return { id: movieSnapshot.id, ...movieSnapshot.data() };
 };
 
 // Función para editar un elemento
-const updateItem = async (id, songName, artistName, coverUrl) => {
-    await updateDoc(doc(db, "songs", id), { songName, artistName, coverUrl }); // Agrega nuevos campos
+const updateMovie = async (id, caratula, genero, movieId, title, year) => {
+    await updateDoc(doc(db, "movies", id), { caratula, genero, movieId, title, year }); // Agrega nuevos campos
 };
 
 // Exportar funciones
 module.exports = {
-    getAllItems,
-    addItem,
-    deleteItem,
-    getItemById,
-    updateItem,
+    getAllMovies,
+    addMovie,
+    deleteMovie,
+    getMovieById,
+    updateMovie,
 };

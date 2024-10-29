@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { getAllItems, addItem, deleteItem, getItemById, updateItem } = require('./Database/crud'); // Importar el controlador
+const { getAllMovies, addMovie, deleteMovie, getMovieById, updateMovie } = require('./Database/crud'); // Importar el controlador
 
 const app = express();
 const port = 8081;
@@ -14,46 +14,46 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Ruta para mostrar la vista principal y los datos de Firebase
 app.get('/principal', async (req, res) => {
-    const items = await getAllItems(); // Obtener todos los elementos
-    res.render('principal', { items }); // Pasamos los datos a la vista
+    const movies = await getAllMovies(); // Obtener todos los elementos de la colección "movies"
+    res.render('principal', { movies }); // Pasamos los datos a la vista
 });
 
 // Ruta para agregar un nuevo elemento
-app.post('/add-item', async (req, res) => {
-    const { songName, artistName, coverUrl } = req.body; // Obtén los nuevos campos
+app.post('/add-movie', async (req, res) => {
+    const { caratula, genero, movieId, title, year } = req.body; // Obtén los campos correspondientes a movies
     try {
-        await addItem(songName, artistName, coverUrl); // Llamar a la función para agregar el elemento
-        res.redirect('/pagina/principal');
+        await addMovie(caratula, genero, movieId, title, year); // Llamar a la función para agregar el elemento
+        res.redirect('/principal'); // Redirigir a la vista principal
     } catch (error) {
         res.send('Error al agregar el elemento');
     }
 });
 
 // Ruta para eliminar un elemento
-app.post('/delete-item/:id', async (req, res) => {
+app.post('/delete-movie/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        await deleteItem(id); // Llamar a la función para eliminar el elemento
-        res.redirect('/pagina/principal');
+        await deleteMovie(id); // Llamar a la función para eliminar el elemento
+        res.redirect('/principal'); // Redirigir a la vista principal
     } catch (error) {
         res.send('Error al eliminar el elemento');
     }
 });
 
 // Ruta para mostrar el formulario de edición
-app.get('/edit-item/:id', async (req, res) => {
+app.get('/edit-movie/:id', async (req, res) => {
     const { id } = req.params;
-    const item = await getItemById(id); // Llamar a la función para obtener el elemento
-    res.render('editar', { item }); // Renderizamos la vista de edición con el elemento a modificar
+    const movie = await getMovieById(id); // Llamar a la función para obtener el elemento
+    res.render('editar', { movie }); // Renderizamos la vista de edición con el elemento a modificar
 });
 
 // Ruta para manejar la edición de un elemento
-app.post('/edit-item/:id', async (req, res) => {
+app.post('/edit-movie/:id', async (req, res) => {
     const { id } = req.params;
-    const { songName, artistName, coverUrl } = req.body; // Obtén los nuevos campos
+    const { caratula, genero, movieId, title, year } = req.body; // Obtén los campos correspondientes a movies
     try {
-        await updateItem(id, songName, artistName, coverUrl); // Llamar a la función para editar el elemento
-        res.redirect('/pagina/principal');
+        await updateMovie(id, caratula, genero, movieId, title, year); // Llamar a la función para editar el elemento
+        res.redirect('/principal'); // Redirigir a la vista principal
     } catch (error) {
         res.send('Error al actualizar el elemento');
     }
