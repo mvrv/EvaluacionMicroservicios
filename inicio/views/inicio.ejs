@@ -11,87 +11,30 @@
             background-color: #181818; /* Fondo oscuro */
             color: #ffffff; /* Color de texto blanco */
             font-family: 'Arial', sans-serif; /* Fuente general */
-        }
-        .navbar {
-            background-color: #ff4500; /* Color de la navbar */
-        }
-        .navbar-brand {
-            font-weight: bold;
-        }
-        .hero {
-            background-image: url('https://via.placeholder.com/1200x400?text=Bienvenido+a+MovieApp'); /* Imagen de fondo */
-            background-size: cover;
-            background-position: center;
-            height: 400px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            position: relative;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-        .hero p {
-            font-size: 1.25rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            min-height: 100vh; /* Centrar contenido verticalmente */
         }
         .btn-primary {
-            background-color: #ff4500; /* Color de los botones */
+            background-color: #ff4500; /* Color del botón */
             border: none;
             padding: 10px 20px;
             font-size: 1.1rem;
         }
         .btn-primary:hover {
-            background-color: #ff6347; /* Color de hover de botones */
-        }
-        footer {
-            background-color: #333333; /* Color del footer */
-            padding: 20px 0;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            background-color: #ff6347; /* Color de hover de botón */
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">MovieApp</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/auth/login">Iniciar Sesión</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <div>
-            <h1>Bienvenido a MovieApp</h1>
-            <p>Explora y disfruta de las mejores películas.</p>
-            <a href="/auth/login" class="btn btn-primary btn-lg">Iniciar Sesión</a>
-        </div>
+    <!-- Main Content -->
+    <div class="text-center">
+        <h1 class="display-4">Inicio</h1>
+        <a href="/auth/login" class="btn btn-primary btn-lg mt-3">Iniciar Sesión</a>
     </div>
-
-    <!-- Movie Image Section -->
-    <div class="container text-center mt-5">
-        <h2 class="mb-4">Descubre Nuevas Películas</h2>
-        <img src="https://via.placeholder.com/800x400?text=Explora+las+Películas" class="img-fluid mb-5" alt="Películas">
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 MovieApp. Todos los derechos reservados.</p>
-    </footer>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
