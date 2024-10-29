@@ -3,15 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Inicio - MovieApp</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212; /* Fondo oscuro */
+            color: #ffffff; /* Color de texto blanco */
+        }
+        .navbar {
+            background-color: #ff4500; /* Color de la navbar */
+        }
+        .btn-primary {
+            background-color: #ff4500; /* Color de los botones */
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #ff6347; /* Color de hover de botones */
+        }
+        .img-fluid {
+            border-radius: 15px; /* Bordes redondeados para las imágenes */
+        }
+    </style>
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #b22222;">
-        <a class="navbar-brand" href="#">MusicApp</a>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">MovieApp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,15 +46,15 @@
     <!-- Main Content -->
     <div class="container d-flex align-items-center justify-content-center min-vh-100">
         <div class="text-center">
-            <h1 class="display-4" style="color: #b22222;">Bienvenido a MusicApp</h1>
-            <p class="lead">Por favor, inicie sesión para explorar la mejor música.</p>
-            <a href="/auth/login" class="btn btn-lg mt-3" style="background-color: #b22222; color: #fff;">Iniciar Sesión</a>
+            <h1 class="display-4">Bienvenido a MovieApp</h1>
+            <p class="lead">Inicia sesión para descubrir y disfrutar de las mejores películas.</p>
+            <a href="/auth/login" class="btn btn-primary btn-lg mt-3">Iniciar Sesión</a>
         </div>
     </div>
 
-    <!-- Music Image Section -->
+    <!-- Movie Image Section -->
     <div class="container text-center mb-5">
-        <img src="https://via.placeholder.com/600x300?text=Explora+la+Música" class="img-fluid mt-5 rounded" alt="Música">
+        <img src="https://via.placeholder.com/600x300?text=Explora+las+Películas" class="img-fluid mt-5" alt="Películas">
     </div>
 
     <!-- Bootstrap JS and dependencies -->
