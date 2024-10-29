@@ -23,7 +23,7 @@ app.post('/add-movie', async (req, res) => {
     const { caratula, genero, movieId, title, year } = req.body; // Obtén los campos correspondientes a movies
     try {
         await addMovie(caratula, genero, movieId, title, year); // Llamar a la función para agregar el elemento
-        res.redirect('/principal'); // Redirigir a la vista principal
+        res.redirect('/principal');
     } catch (error) {
         res.send('Error al agregar el elemento');
     }
