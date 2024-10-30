@@ -3,7 +3,6 @@ const { initializeApp } = require("firebase/app");
 const { getFirestore } = require('firebase/firestore');
 const { getStorage } = require('firebase/storage');
 
-// Configuración de Firebase utilizando credenciales del servicio
 const firebaseConfig = {
     apiKey: "AIzaSyAM4jhrnUfJK6Ag8YCvHpIeIvkYyOvVgQ0",
     authDomain: "edos-84ac7.firebaseapp.com",
@@ -18,5 +17,4 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-// Exportar db y storage
 module.exports = { db, storage };

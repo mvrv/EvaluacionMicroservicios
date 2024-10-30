@@ -1,15 +1,15 @@
-const { db } = require('./firebaseconfig'); // Importar Firebase
-const { collection, addDoc, getDoc, getDocs, doc, deleteDoc, updateDoc } = require('firebase/firestore'); // Firestore funciones
+const { db } = require('./firebaseconfig'); 
+const { collection, addDoc, getDoc, getDocs, doc, deleteDoc, updateDoc } = require('firebase/firestore');
 
 // Función para obtener todos los elementos
 const getAllMovies = async () => {
-    const querySnapshot = await getDocs(collection(db, "movies")); // Cambia "songs" por "movies"
+    const querySnapshot = await getDocs(collection(db, "movies"));
     return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
 // Función para agregar un nuevo elemento
 const addMovie = async (caratula, genero, movieId, title, year) => {
-    await addDoc(collection(db, "movies"), { caratula, genero, movieId, title, year }); // Agrega nuevos campos
+    await addDoc(collection(db, "movies"), { caratula, genero, movieId, title, year });
 };
 
 // Función para eliminar un elemento
@@ -25,7 +25,7 @@ const getMovieById = async (id) => {
 
 // Función para editar un elemento
 const updateMovie = async (id, caratula, genero, movieId, title, year) => {
-    await updateDoc(doc(db, "movies", id), { caratula, genero, movieId, title, year }); // Agrega nuevos campos
+    await updateDoc(doc(db, "movies", id), { caratula, genero, movieId, title, year });
 };
 
 // Exportar funciones

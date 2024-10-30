@@ -2,7 +2,6 @@
 const gateway = require('fast-gateway');
 const port = 9001;
 
-// Iniciar el gateway
 const server = gateway({
     routes: [
         {
@@ -11,7 +10,7 @@ const server = gateway({
             hooks: {}
         },
         {
-            prefix: '/',  // Página inicio
+            prefix: '/', 
             target: 'https://inicio-kppi.onrender.com',  
             hooks: {}
         },
@@ -23,7 +22,6 @@ const server = gateway({
     ]
 });
 
-// Iniciar el gateway
 server.start(port).then(() => {
     console.log(`Gateway ejecutándose en el puerto: ${port}`);
 });
