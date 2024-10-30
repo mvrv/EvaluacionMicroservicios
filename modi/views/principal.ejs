@@ -3,44 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Película</title>
+    <title>Principal</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
-    <div class="container my-5">
-        <h1 class="text-center" style="color: #b22222;">Editar Película</h1>
+    <!-- Header -->
+    <div class="container mt-5 text-center">
+        <h1 class="display-4" style="color: #b22222;">Bienvenido a Principal</h1>
+    </div>
 
-        <!-- Formulario de Edición -->
-        <form action="/modi/edit-movie/<%= movie.id %>" method="POST" class="mx-auto" style="max-width: 600px;">
+    <!-- Formulario de Agregar Nueva Película -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4" style="color: #b22222;">Agregar nueva película</h2>
+        <form action="/add-item" method="POST" class="mx-auto" style="max-width: 600px;">
             <div class="form-group">
-                <label for="title">Título de la Película</label>
-                <input type="text" id="title" name="title" value="<%= movie.title %>" class="form-control" required placeholder="Título de la película">
-            </div>
-            <div class="form-group">
-                <label for="year">Año de Estreno</label>
-                <input type="text" id="year" name="year" value="<%= movie.year %>" class="form-control" required placeholder="Año de estreno">
+                <input type="text" name="title" class="form-control" placeholder="Título de la película" required>
             </div>
             <div class="form-group">
-                <label for="genero">Género</label>
-                <input type="text" id="genero" name="genero" value="<%= movie.genero %>" class="form-control" required placeholder="Género">
+                <input type="text" name="genero" class="form-control" placeholder="Género" required>
             </div>
             <div class="form-group">
-                <label for="movieId">ID de la Película</label>
-                <input type="text" id="movieId" name="movieId" value="<%= movie.movieId %>" class="form-control" required placeholder="ID de la película">
+                <input type="text" name="movieId" class="form-control" placeholder="ID de la película" required>
             </div>
             <div class="form-group">
-                <label for="caratula">URL de la Carátula</label>
-                <input type="text" id="caratula" name="caratula" value="<%= movie.caratula %>" class="form-control" required placeholder="URL de la carátula">
+                <input type="text" name="year" class="form-control" placeholder="Año de lanzamiento" required>
             </div>
-            <div class="d-flex justify-content-between mt-4">
-                <button type="submit" class="btn btn-primary" style="background-color: #b22222;">Guardar Cambios</button>
-                <a href="/modi/principal" class="btn btn-secondary">Cancelar</a>
+            <div class="form-group">
+                <input type="text" name="caratula" class="form-control" placeholder="URL de la carátula" required>
             </div>
+            <button type="submit" class="btn btn-danger btn-block">Agregar</button>
         </form>
     </div>
 
+    <!-- Lista de Películas -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4" style="color: #b22222;">Lista de películas</h2>
+        <div class="row">
+            <% movies.forEach(movie => { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="<%= movie.caratula %>" class="card-img-top" alt="<%= movie.title %> Cover" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= movie.title %></h5>
+                            <p class="card-text">Género: <%= movie.genero %></p>
+                            <p class="card-text">Año: <%= movie.year %></p>
+                            <div class="d-flex justify-content-between">
+                                <form action="/delete-item/<%= movie.id %>" method="POST">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                                <a href="/edit-item/<%= movie.id %>" class="btn btn-warning">Editar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <!-- Botones de Navegación -->
     <div class="container text-center my-4">
         <a href="/" class="btn btn-secondary mr-2">Inicio</a>
         <a href="/auth/login" class="btn btn-secondary">Atrás</a>

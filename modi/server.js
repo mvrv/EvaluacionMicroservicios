@@ -10,9 +10,9 @@ app.set('views', './views');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/modi/principal', async (req, res) => {
+app.get('/modi', async (req, res) => {
     const movies = await getAllMovies(); 
-    res.render('principal', { movies }); 
+    res.render('/principal', { movies }); 
 });
 
 // Ruta para agregar un nuevo elemento
