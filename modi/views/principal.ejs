@@ -40,20 +40,30 @@
         }
 
         .card {
-            width: 100%; /* Las cards ocuparán el 100% de su contenedor */
-            height: 400px; /* Altura fija para las cards */
+            flex: 1; /* Hace que las cards sean adaptables */
             margin: 10px; /* Margen entre cards */
             border: none;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex; /* Permite ajustar el contenido interno */
+            flex-direction: column; /* Apila los elementos dentro de la card */
             transition: transform 0.2s;
+            max-width: 250px; /* Ancho máximo para las cards */
+            height: auto; /* Altura automática para adaptarse al contenido */
         }
 
         .card img {
-            height: 300px;
+            max-height: 300px; /* Limita la altura de la imagen */
             object-fit: cover;
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Espacio uniforme entre los elementos */
+            flex-grow: 1; /* Permite que el cuerpo de la card crezca */
         }
 
         .card:hover {
