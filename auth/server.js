@@ -16,7 +16,7 @@ app.use(session({
     saveUninitialized: true,
 }));
 
-app.get('/auth/login', (req, res) => {
+app.get('/login', (req, res) => {
     res.render('login'); 
 });
 
