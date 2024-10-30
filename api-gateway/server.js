@@ -15,7 +15,7 @@ const server = gateway({
             hooks: {}
         },
         {
-            prefix: '/pagina',
+            prefix: '/modi',
             target: 'https://principal-lqck.onrender.com',  
             hooks: {}
         }

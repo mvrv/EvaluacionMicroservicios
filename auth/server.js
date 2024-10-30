@@ -25,7 +25,7 @@ app.post('/login', (req, res) => {
 
     if (username === 'admin' && password === 'admin') {
         req.session.user = username;  
-        res.redirect('/inicio/modi');  
+        res.redirect('/modi/principal');  
     } else {
         res.send('Usuario o contraseña incorrecta');
     }
