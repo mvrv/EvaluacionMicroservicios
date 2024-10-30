@@ -6,7 +6,7 @@ const server = gateway({
     routes: [
         {
             prefix: '/login',
-            target: 'https://auth-3q3d.onrender.com/',  
+            target: 'https://api-gateway-lii7.onrender.com/',  
             hooks: {}
         },
         {
