@@ -6,18 +6,55 @@
     <title>Principal</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Color de fondo claro */
+        }
+        .header-title {
+            color: #b22222; /* Color para el título */
+            margin-top: 50px;
+            font-weight: bold;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            background-color: #ffffff; /* Fondo blanco para el formulario */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        }
+        .card {
+            border: none; /* Sin borde en las tarjetas */
+            border-radius: 10px; /* Bordes redondeados */
+        }
+        .card-img-top {
+            border-radius: 10px 10px 0 0; /* Bordes redondeados para la imagen */
+            height: 200px;
+            object-fit: cover; /* Mantener la proporción */
+        }
+        .btn-custom {
+            background-color: #b22222; /* Color personalizado */
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #a61b1b; /* Color al pasar el mouse */
+        }
+        .nav-buttons {
+            margin: 20px 0;
+        }
+    </style>
 </head>
-<body class="bg-light">
+<body>
 
     <!-- Header -->
-    <div class="container mt-5 text-center">
-        <h1 class="display-4" style="color: #b22222;">Bienvenido a Principal</h1>
+    <div class="text-center">
+        <h1 class="header-title display-4">Bienvenido a Principal</h1>
     </div>
 
     <!-- Formulario de Agregar Nueva Película -->
-    <div class="container my-5">
+    <div class="form-container my-5">
         <h2 class="text-center mb-4" style="color: #b22222;">Agregar nueva película</h2>
-        <form action="/add-item" method="POST" class="mx-auto" style="max-width: 600px;">
+        <form action="/add-item" method="POST">
             <div class="form-group">
                 <input type="text" name="title" class="form-control" placeholder="Título de la película" required>
             </div>
@@ -33,7 +70,7 @@
             <div class="form-group">
                 <input type="text" name="caratula" class="form-control" placeholder="URL de la carátula" required>
             </div>
-            <button type="submit" class="btn btn-danger btn-block">Agregar</button>
+            <button type="submit" class="btn btn-custom btn-block">Agregar</button>
         </form>
     </div>
 
@@ -44,7 +81,7 @@
             <% movies.forEach(movie => { %>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm">
-                        <img src="<%= movie.caratula %>" class="card-img-top" alt="<%= movie.title %> Cover" style="height: 200px; object-fit: cover;">
+                        <img src="<%= movie.caratula %>" class="card-img-top" alt="<%= movie.title %> Cover">
                         <div class="card-body">
                             <h5 class="card-title"><%= movie.title %></h5>
                             <p class="card-text">Género: <%= movie.genero %></p>
@@ -63,7 +100,7 @@
     </div>
 
     <!-- Botones de Navegación -->
-    <div class="container text-center my-4">
+    <div class="container text-center nav-buttons">
         <a href="/" class="btn btn-secondary mr-2">Inicio</a>
         <a href="/auth/login" class="btn btn-secondary">Atrás</a>
     </div>

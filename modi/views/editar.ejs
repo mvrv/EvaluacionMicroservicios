@@ -5,50 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Película</title>
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f7f9fc;
+        }
+        h1 {
+            color: #333;
+        }
+        .btn-custom {
+            background-color: #b22222;
+            color: white;
+        }
+    </style>
 </head>
-<body class="bg-light">
+<body>
 
     <div class="container my-5">
-        <h1 class="text-center" style="color: #b22222;">Editar Película</h1>
+        <h1 class="text-center">Editar Película</h1>
 
         <!-- Formulario de Edición -->
-        <form action="/modi/edit-movie/<%= movie.id %>" method="POST" class="mx-auto" style="max-width: 600px;">
-            <div class="form-group">
+        <form action="/modi/edit-movie/<%= movie.id %>" method="POST" class="mx-auto" style="max-width: 500px;">
+            <div class="form-group mb-3">
                 <label for="title">Título de la Película</label>
                 <input type="text" id="title" name="title" value="<%= movie.title %>" class="form-control" required placeholder="Título de la película">
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label for="year">Año de Estreno</label>
                 <input type="text" id="year" name="year" value="<%= movie.year %>" class="form-control" required placeholder="Año de estreno">
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label for="genero">Género</label>
                 <input type="text" id="genero" name="genero" value="<%= movie.genero %>" class="form-control" required placeholder="Género">
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label for="movieId">ID de la Película</label>
                 <input type="text" id="movieId" name="movieId" value="<%= movie.movieId %>" class="form-control" required placeholder="ID de la película">
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label for="caratula">URL de la Carátula</label>
                 <input type="text" id="caratula" name="caratula" value="<%= movie.caratula %>" class="form-control" required placeholder="URL de la carátula">
             </div>
             <div class="d-flex justify-content-between mt-4">
-                <button type="submit" class="btn btn-primary" style="background-color: #b22222;">Guardar Cambios</button>
+                <button type="submit" class="btn btn-custom">Guardar Cambios</button>
                 <a href="/modi/principal" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>
 
     <div class="container text-center my-4">
-        <a href="/" class="btn btn-secondary mr-2">Inicio</a>
+        <a href="/" class="btn btn-secondary me-2">Inicio</a>
         <a href="/auth/login" class="btn btn-secondary">Atrás</a>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 </body>
 </html>
