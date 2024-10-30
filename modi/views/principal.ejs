@@ -40,12 +40,12 @@
         }
 
         .card {
-            width: 200px; /* Ancho fijo para las cards */
-            background: white;
+            width: 100%; /* Las cards ocuparán el 100% de su contenedor */
+            height: 400px; /* Altura fija para las cards */
+            margin: 10px; /* Margen entre cards */
             border: none;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            margin: 10px;
             transition: transform 0.2s;
         }
 
@@ -99,7 +99,10 @@
             margin: 0 10px;
         }
 
+        /* Estilo para el layout de cards */
         .row {
+            display: flex;
+            flex-wrap: wrap; /* Permite que las cards se ajusten en varias filas */
             justify-content: center; /* Centra las cards en la fila */
         }
     </style>
@@ -129,7 +132,7 @@
         <h2 class="text-center mb-4">Lista de películas</h2>
         <div class="row">
             <% movies.forEach(movie => { %>
-                <div class="col-md-3 d-flex align-items-stretch justify-content-center">
+                <div class="col-md-3 d-flex align-items-stretch justify-content-center"> <!-- Cambia a 3 para 4 cards por fila -->
                     <div class="card">
                         <img src="<%= movie.caratula %>" class="card-img-top" alt="<%= movie.title %> Cover">
                         <div class="card-body">
