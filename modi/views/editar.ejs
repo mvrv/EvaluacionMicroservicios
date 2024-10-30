@@ -8,14 +8,19 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f7f9fc;
+            background-color: #e9ecef;
+            font-family: 'Arial', sans-serif;
         }
         h1 {
-            color: #333;
+            color: #343a40;
         }
         .btn-custom {
-            background-color: #b22222;
+            background-color: #28a745;
             color: white;
+            transition: background-color 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #218838;
         }
     </style>
 </head>
@@ -53,8 +58,8 @@
         </form>
     </div>
 
-    <div class="container text-center my-4">
-        <a href="/" class="btn btn-secondary me-2">Inicio</a>
+    <div class="container text-center my-4 nav-buttons">
+        <a href="/" class="btn btn-secondary">Inicio</a>
         <a href="/auth/login" class="btn btn-secondary">Atrás</a>
     </div>
 

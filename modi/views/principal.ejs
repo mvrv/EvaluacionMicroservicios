@@ -5,69 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Principal</title>
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa; /* Color de fondo claro */
+            background-color: #e9ecef;
+            font-family: 'Arial', sans-serif;
         }
-        .header-title {
-            color: #b22222; /* Color para el título */
-            margin-top: 50px;
-            font-weight: bold;
-        }
-        .form-container {
-            max-width: 600px;
-            margin: auto;
-            padding: 30px;
-            background-color: #ffffff; /* Fondo blanco para el formulario */
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-        }
-        .card {
-            border: none; /* Sin borde en las tarjetas */
-            border-radius: 10px; /* Bordes redondeados */
-        }
-        .card-img-top {
-            border-radius: 10px 10px 0 0; /* Bordes redondeados para la imagen */
-            height: 200px;
-            object-fit: cover; /* Mantener la proporción */
+        h1, h2 {
+            color: #343a40;
         }
         .btn-custom {
-            background-color: #b22222; /* Color personalizado */
+            background-color: #28a745;
             color: white;
+            transition: background-color 0.3s;
         }
         .btn-custom:hover {
-            background-color: #a61b1b; /* Color al pasar el mouse */
+            background-color: #218838;
         }
-        .nav-buttons {
-            margin: 20px 0;
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            height: 250px;
+            object-fit: cover;
+        }
+        .nav-buttons a {
+            margin: 0 5px;
         }
     </style>
 </head>
 <body>
 
     <!-- Header -->
-    <div class="text-center">
-        <h1 class="header-title display-4">Bienvenido a Principal</h1>
+    <div class="container text-center mt-5">
+        <h1 class="display-4">Bienvenido a Principal</h1>
     </div>
 
     <!-- Formulario de Agregar Nueva Película -->
-    <div class="form-container my-5">
-        <h2 class="text-center mb-4" style="color: #b22222;">Agregar nueva película</h2>
-        <form action="/add-item" method="POST">
-            <div class="form-group">
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Agregar nueva película</h2>
+        <form action="/add-item" method="POST" class="mx-auto" style="max-width: 500px;">
+            <div class="form-group mb-3">
                 <input type="text" name="title" class="form-control" placeholder="Título de la película" required>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <input type="text" name="genero" class="form-control" placeholder="Género" required>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <input type="text" name="movieId" class="form-control" placeholder="ID de la película" required>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <input type="text" name="year" class="form-control" placeholder="Año de lanzamiento" required>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <input type="text" name="caratula" class="form-control" placeholder="URL de la carátula" required>
             </div>
             <button type="submit" class="btn btn-custom btn-block">Agregar</button>
@@ -76,7 +72,7 @@
 
     <!-- Lista de Películas -->
     <div class="container my-5">
-        <h2 class="text-center mb-4" style="color: #b22222;">Lista de películas</h2>
+        <h2 class="text-center mb-4">Lista de películas</h2>
         <div class="row">
             <% movies.forEach(movie => { %>
                 <div class="col-md-4 mb-4">
@@ -100,14 +96,14 @@
     </div>
 
     <!-- Botones de Navegación -->
-    <div class="container text-center nav-buttons">
-        <a href="/" class="btn btn-secondary mr-2">Inicio</a>
+    <div class="container text-center my-4 nav-buttons">
+        <a href="/" class="btn btn-secondary">Inicio</a>
         <a href="/auth/login" class="btn btn-secondary">Atrás</a>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 </body>
 </html>
