@@ -11,7 +11,7 @@ const server = gateway({
         },
         {
             prefix: '/', 
-            target: 'https://inicio-kppi.onrender.com',  
+            target: 'https://inicio-6v23.onrender.com',  
             hooks: {}
         },
         {
