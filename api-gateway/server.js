@@ -5,13 +5,13 @@ const port = 9001;
 const server = gateway({
     routes: [
         {
-            prefix: '/auth',
-            target: 'https://auth-n1vi.onrender.com/',  
+            prefix: '/login',
+            target: 'https://auth-3q3d.onrender.com/',  
             hooks: {}
         },
         {
             prefix: '/', 
-            target: 'https://inicio-6v23.onrender.com',  
+            target: 'https://inicio-6v23.onrender.com',     
             hooks: {}
         },
         {
