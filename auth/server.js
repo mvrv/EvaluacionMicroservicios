@@ -17,7 +17,7 @@ app.use(session({
 }));
 
 app.get('/login', (req, res) => {
-    res.render('login'); 
+    res.render('./views/login.ejs'); 
 });
 
 app.post('/login', (req, res) => {
