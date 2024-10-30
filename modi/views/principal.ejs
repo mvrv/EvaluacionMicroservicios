@@ -40,6 +40,7 @@
         }
 
         .card {
+            width: 200px; /* Ancho fijo para las cards */
             background: white;
             border: none;
             border-radius: 8px;
@@ -128,7 +129,7 @@
         <h2 class="text-center mb-4">Lista de películas</h2>
         <div class="row">
             <% movies.forEach(movie => { %>
-                <div class="col-md-3 d-flex align-items-stretch">
+                <div class="col-md-3 d-flex align-items-stretch justify-content-center">
                     <div class="card">
                         <img src="<%= movie.caratula %>" class="card-img-top" alt="<%= movie.title %> Cover">
                         <div class="card-body">
