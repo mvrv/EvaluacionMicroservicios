@@ -36,6 +36,9 @@
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
         }
+        .row {
+            justify-content: center; /* Centra las cards en la fila */
+        }
         .nav-buttons a {
             margin: 0 10px;
         }
@@ -77,10 +80,10 @@
     <!-- Lista de Películas -->
     <div class="container my-5">
         <h2 class="text-center mb-4">Lista de películas</h2>
-        <div class="row text-center">
+        <div class="row">
             <% movies.forEach(movie => { %>
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100">
+                <div class="col-md-3 d-flex align-items-stretch mb-4">
+                    <div class="card w-100">
                         <img src="<%= movie.caratula %>" class="card-img-top" alt="<%= movie.title %> Cover">
                         <div class="card-body">
                             <h5 class="card-title"><%= movie.title %></h5>
