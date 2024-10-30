@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { getAllMovies, addMovie, deleteMovie, getMovieById, updateMovie } = require('./Database/crud'); // Importar el controlador
+const { getAllMovies, addMovie, deleteMovie, getMovieById, updateMovie } = require('./Database/crud'); 
 
 const app = express();
 const port = 8081;
@@ -20,7 +20,7 @@ app.post('/add-movie', async (req, res) => {
     const { caratula, genero, movieId, title, year } = req.body; 
     try {
         await addMovie(caratula, genero, movieId, title, year); 
-        res.redirect('/modi');
+        res.redirect('principal');
     } catch (error) {
         res.send('Error al agregar el elemento');
     }
@@ -31,7 +31,7 @@ app.post('/delete-movie/:id', async (req, res) => {
     const { id } = req.params;
     try {
         await deleteMovie(id); 
-        res.redirect('/principal');
+        res.redirect('principal');
     } catch (error) {
         res.send('Error al eliminar el elemento');
     }
@@ -50,7 +50,7 @@ app.post('/edit-movie/:id', async (req, res) => {
     const { caratula, genero, movieId, title, year } = req.body; 
     try {
         await updateMovie(id, caratula, genero, movieId, title, year); 
-        res.redirect('/principal');
+        res.redirect('principal');
     } catch (error) {
         res.send('Error al actualizar el elemento');
     }

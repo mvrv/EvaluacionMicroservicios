@@ -17,7 +17,7 @@
     <!-- Formulario de Agregar Nueva Canción -->
     <div class="container my-5">
         <h2 class="text-center mb-4" style="color: #b22222;">Agregar nueva canción</h2>
-        <form action="/pagina/add-item" method="POST" class="mx-auto" style="max-width: 600px;">
+        <form action="/modi/add-item" method="POST" class="mx-auto" style="max-width: 600px;">
             <div class="form-group">
                 <input type="text" name="songName" class="form-control" placeholder="Nombre de la canción" required>
             </div>
@@ -46,7 +46,7 @@
                                 <form action="/pagina/delete-item/<%= item.id %>" method="POST">
                                     <button type="submit" class="btn btn-danger">Eliminar</button>
                                 </form>
-                                <a href="/pagina/edit-item/<%= item.id %>" class="btn btn-warning">Editar</a>
+                                <a href="/modi/edit-item/<%= item.id %>" class="btn btn-warning">Editar</a>
                             </div>
                         </div>
                     </div>
