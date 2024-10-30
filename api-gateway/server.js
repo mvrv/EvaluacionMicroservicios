@@ -5,7 +5,7 @@ const port = 9001;
 const server = gateway({
     routes: [
         {
-            prefix: '/login',
+            prefix: '/auth',
             target: 'https://api-gateway-lii7.onrender.com/login',  
             hooks: {}
         },
