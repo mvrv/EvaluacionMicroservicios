@@ -20,7 +20,7 @@ app.use(session({
 }));
 
 // Ruta para el formulario de login (será /auth/login)
-app.get('/login', (req, res) => {
+app.get('/api-gatewayauth/login', (req, res) => {
     res.render('login');  // Renderiza el archivo login.ejs
 });
 
