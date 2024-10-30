@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/modi', async (req, res) => {
     const movies = await getAllMovies(); 
-    res.render('/principal', { movies }); 
+    res.render('principal', { movies }); 
 });
 
 // Ruta para agregar un nuevo elemento
@@ -20,7 +20,7 @@ app.post('/add-item', async (req, res) => {
     const { caratula, genero, movieId, title, year } = req.body; 
     try {
         await addMovie(caratula, genero, movieId, title, year); 
-        res.redirect('/modi/principal');
+        res.redirect('/modi');
     } catch (error) {
         res.send('Error al agregar el elemento');
     }
