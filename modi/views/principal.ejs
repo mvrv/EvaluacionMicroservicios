@@ -3,62 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Editar Película</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
-    <!-- Header -->
-    <div class="container mt-5 text-center">
-        <h1 class="display-4" style="color: #b22222;">Bienvenido a Principal</h1>
-    </div>
-
-    <!-- Formulario de Agregar Nueva Canción -->
     <div class="container my-5">
-        <h2 class="text-center mb-4" style="color: #b22222;">Agregar Pelicula</h2>
-        <form action="/modi/add-item" method="POST" class="mx-auto" style="max-width: 600px;">
+        <h1 class="text-center" style="color: #b22222;">Editar Película</h1>
+
+        <!-- Formulario de Edición -->
+        <form action="/modi/edit-movie/<%= movie.id %>" method="POST" class="mx-auto" style="max-width: 600px;">
             <div class="form-group">
-                <input type="text" name="title" class="form-control" placeholder="Nombre de la pelicula" required>
+                <label for="title">Título de la Película</label>
+                <input type="text" id="title" name="title" value="<%= movie.title %>" class="form-control" required placeholder="Título de la película">
             </div>
             <div class="form-group">
-                <input type="text" name="genero" class="form-control" placeholder="Genero" required>
+                <label for="year">Año de Estreno</label>
+                <input type="text" id="year" name="year" value="<%= movie.year %>" class="form-control" required placeholder="Año de estreno">
             </div>
             <div class="form-group">
-                <input type="text" name="year" class="form-control" placeholder="Año" required>
+                <label for="genero">Género</label>
+                <input type="text" id="genero" name="genero" value="<%= movie.genero %>" class="form-control" required placeholder="Género">
             </div>
             <div class="form-group">
-                <input type="text" name="caratula" class="form-control" placeholder="URL de la carátula" required>
+                <label for="movieId">ID de la Película</label>
+                <input type="text" id="movieId" name="movieId" value="<%= movie.movieId %>" class="form-control" required placeholder="ID de la película">
             </div>
-            <button type="submit" class="btn btn-danger btn-block">Agregar</button>
+            <div class="form-group">
+                <label for="caratula">URL de la Carátula</label>
+                <input type="text" id="caratula" name="caratula" value="<%= movie.caratula %>" class="form-control" required placeholder="URL de la carátula">
+            </div>
+            <div class="d-flex justify-content-between mt-4">
+                <button type="submit" class="btn btn-primary" style="background-color: #b22222;">Guardar Cambios</button>
+                <a href="/modi/principal" class="btn btn-secondary">Cancelar</a>
+            </div>
         </form>
     </div>
 
-    <!-- Lista de Canciones -->
-    <div class="container my-5">
-        <h2 class="text-center mb-4" style="color: #b22222;">Peliculas</h2>
-        <div class="row">
-            <% items.forEach(item => { %>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="<%= item.caratula %>" class="card-img-top" alt="<%= item.title %> Cover" style="height: 200px; object-fit: cover;">
-                        <div class="card-body">
-                            <h5 class="card-title"><%= item.title %></h5>
-                            <p class="card-text">Artista: <%= item.genero %></p>
-                            <div class="d-flex justify-content-between">
-                                <form action="/modi/delete-item/<%= item.id %>" method="POST">
-                                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                                </form>
-                                <a href="/modi/edit-item/<%= item.id %>" class="btn btn-warning">Editar</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <% }) %>
-        </div>
-    </div>
-
-    <!-- Botones de Navegación -->
     <div class="container text-center my-4">
         <a href="/" class="btn btn-secondary mr-2">Inicio</a>
         <a href="/auth/login" class="btn btn-secondary">Atrás</a>
