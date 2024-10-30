@@ -4,147 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Principal</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+            background-color: #f8f9fa; /* Color de fondo claro */
         }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #003366;
+        .header-title {
+            color: #0033ff; /* Color para el título */
+            margin-top: 50px;
+            font-weight: bold;
         }
-
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            background-color: #ffffff; /* Fondo blanco para el formulario */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
         }
-
         .card {
-            flex: 1; /* Hace que las cards sean adaptables */
-            margin: 10px; /* Margen entre cards */
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            display: flex; /* Permite ajustar el contenido interno */
-            flex-direction: column; /* Apila los elementos dentro de la card */
-            transition: transform 0.2s;
-            max-width: 250px; /* Ancho máximo para las cards */
-            height: auto; /* Altura automática para adaptarse al contenido */
+            border: none; /* Sin borde en las tarjetas */
+            border-radius: 10px; /* Bordes redondeados */
         }
-
-        .card img {
-            max-height: 300px; /* Limita la altura de la imagen */
-            object-fit: cover;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
+        .card-img-top {
+            border-radius: 10px 10px 0 0; /* Bordes redondeados para la imagen */
+            height: 200px;
+            object-fit: cover; /* Mantener la proporción */
         }
-
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Espacio uniforme entre los elementos */
-            flex-grow: 1; /* Permite que el cuerpo de la card crezca */
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            transition: border-color 0.3s;
-        }
-
-        input:focus {
-            border-color: #007BFF;
-            outline: none;
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 4px;
-            background-color: #007BFF;
+        .btn-custom {
+            background-color: #0033ff; /* Color personalizado */
             color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
         }
-
-        button:hover {
-            background-color: #0056b3;
+        .btn-custom:hover {
+            background-color: #0033ff; /* Color al pasar el mouse */
         }
-
         .nav-buttons {
-            margin-top: 20px;
-        }
-
-        .nav-buttons a {
-            margin: 0 10px;
-        }
-
-        /* Estilo para el layout de cards */
-        .row {
-            display: flex;
-            flex-wrap: wrap; /* Permite que las cards se ajusten en varias filas */
-            justify-content: center; /* Centra las cards en la fila */
-            gap: 20px; /* Espaciado uniforme entre las cards */
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
 
     <!-- Header -->
-    <div class="container text-center mt-5">
-        <h1>Bienvenido a la Cartelera de Cine</h1>
+    <div class="text-center">
+        <h1 class="header-title display-4">Bienvenido a Principal</h1>
     </div>
 
     <!-- Formulario de Agregar Nueva Película -->
-    <div class="container my-5">
-        <h2 class="text-center mb-4">Agregar nueva película</h2>
-        <form action="/add-item" method="POST" class="mx-auto" style="max-width: 600px;">
-            <input type="text" name="title" placeholder="Título de la película" required>
-            <input type="text" name="genero" placeholder="Género" required>
-            <input type="text" name="movieId" placeholder="ID de la película" required>
-            <input type="text" name="year" placeholder="Año de lanzamiento" required>
-            <input type="text" name="caratula" placeholder="URL de la carátula" required>
-            <button type="submit">Agregar</button>
+    <div class="form-container my-5">
+        <h2 class="text-center mb-4" style="color: #0033ff;">Agregar nueva película</h2>
+        <form action="/add-item" method="POST">
+            <div class="form-group">
+                <input type="text" name="title" class="form-control" placeholder="Título de la película" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="genero" class="form-control" placeholder="Género" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="movieId" class="form-control" placeholder="ID de la película" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="year" class="form-control" placeholder="Año de lanzamiento" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="caratula" class="form-control" placeholder="URL de la carátula" required>
+            </div>
+            <button type="submit" class="btn btn-custom btn-block">Agregar</button>
         </form>
     </div>
 
     <!-- Lista de Películas -->
     <div class="container my-5">
-        <h2 class="text-center mb-4">Lista de películas</h2>
+        <h2 class="text-center mb-4" style="color: #0033ff;">Lista de películas</h2>
         <div class="row">
             <% movies.forEach(movie => { %>
-                <div class="col-md-3 d-flex align-items-stretch justify-content-center"> <!-- Cambia a 3 para 4 cards por fila -->
-                    <div class="card">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
                         <img src="<%= movie.caratula %>" class="card-img-top" alt="<%= movie.title %> Cover">
                         <div class="card-body">
                             <h5 class="card-title"><%= movie.title %></h5>
@@ -164,14 +100,14 @@
     </div>
 
     <!-- Botones de Navegación -->
-    <div class="container text-center my-4 nav-buttons">
-        <a href="/" class="btn btn-secondary">Inicio</a>
+    <div class="container text-center nav-buttons">
+        <a href="/" class="btn btn-secondary mr-2">Inicio</a>
         <a href="/auth/login" class="btn btn-secondary">Atrás</a>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
