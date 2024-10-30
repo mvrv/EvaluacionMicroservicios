@@ -16,41 +16,41 @@ app.get('/modi', async (req, res) => {
 });
 
 // Ruta para agregar un nuevo elemento
-app.post('/add-movie', async (req, res) => {
+app.post('/add-item', async (req, res) => {
     const { caratula, genero, movieId, title, year } = req.body; 
     try {
         await addMovie(caratula, genero, movieId, title, year); 
-        res.redirect('principal');
+        res.redirect('/modi/principal');
     } catch (error) {
         res.send('Error al agregar el elemento');
     }
 });
 
 // Ruta para eliminar un elemento
-app.post('/delete-movie/:id', async (req, res) => {
+app.post('/delete-item/:id', async (req, res) => {
     const { id } = req.params;
     try {
         await deleteMovie(id); 
-        res.redirect('principal');
+        res.redirect('/modi/principal');
     } catch (error) {
         res.send('Error al eliminar el elemento');
     }
 });
 
 // Ruta para mostrar el formulario de edición
-app.get('/edit-movie/:id', async (req, res) => {
+app.get('/edit-item/:id', async (req, res) => {
     const { id } = req.params;
-    const movie = await getMovieById(id); 
-    res.render('editar', { movie }); 
+    const item = await getMovieById(id); 
+    res.render('editar', { item }); 
 });
 
 // Ruta para manejar la edición de un elemento
-app.post('/edit-movie/:id', async (req, res) => {
+app.post('/edit-item/:id', async (req, res) => {
     const { id } = req.params;
     const { caratula, genero, movieId, title, year } = req.body; 
     try {
         await updateMovie(id, caratula, genero, movieId, title, year); 
-        res.redirect('principal');
+        res.redirect('/modi/principal');
     } catch (error) {
         res.send('Error al actualizar el elemento');
     }

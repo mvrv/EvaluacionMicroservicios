@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal</title>
+    <title>Home</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -16,16 +16,19 @@
 
     <!-- Formulario de Agregar Nueva Canción -->
     <div class="container my-5">
-        <h2 class="text-center mb-4" style="color: #b22222;">Agregar nueva canción</h2>
+        <h2 class="text-center mb-4" style="color: #b22222;">Agregar Pelicula</h2>
         <form action="/modi/add-item" method="POST" class="mx-auto" style="max-width: 600px;">
             <div class="form-group">
-                <input type="text" name="songName" class="form-control" placeholder="Nombre de la canción" required>
+                <input type="text" name="title" class="form-control" placeholder="Nombre de la pelicula" required>
             </div>
             <div class="form-group">
-                <input type="text" name="artistName" class="form-control" placeholder="Nombre del artista" required>
+                <input type="text" name="genero" class="form-control" placeholder="Genero" required>
             </div>
             <div class="form-group">
-                <input type="text" name="coverUrl" class="form-control" placeholder="URL de la carátula" required>
+                <input type="text" name="year" class="form-control" placeholder="Año" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="caratula" class="form-control" placeholder="URL de la carátula" required>
             </div>
             <button type="submit" class="btn btn-danger btn-block">Agregar</button>
         </form>
@@ -33,17 +36,17 @@
 
     <!-- Lista de Canciones -->
     <div class="container my-5">
-        <h2 class="text-center mb-4" style="color: #b22222;">Lista de canciones</h2>
+        <h2 class="text-center mb-4" style="color: #b22222;">Peliculas</h2>
         <div class="row">
             <% items.forEach(item => { %>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm">
-                        <img src="<%= item.coverUrl %>" class="card-img-top" alt="<%= item.songName %> Cover" style="height: 200px; object-fit: cover;">
+                        <img src="<%= item.caratula %>" class="card-img-top" alt="<%= item.title %> Cover" style="height: 200px; object-fit: cover;">
                         <div class="card-body">
-                            <h5 class="card-title"><%= item.songName %></h5>
-                            <p class="card-text">Artista: <%= item.artistName %></p>
+                            <h5 class="card-title"><%= item.title %></h5>
+                            <p class="card-text">Artista: <%= item.genero %></p>
                             <div class="d-flex justify-content-between">
-                                <form action="/pagina/delete-item/<%= item.id %>" method="POST">
+                                <form action="/modi/delete-item/<%= item.id %>" method="POST">
                                     <button type="submit" class="btn btn-danger">Eliminar</button>
                                 </form>
                                 <a href="/modi/edit-item/<%= item.id %>" class="btn btn-warning">Editar</a>
