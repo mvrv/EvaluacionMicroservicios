@@ -31,7 +31,7 @@ app.post('/delete-item/:id', async (req, res) => {
     const { id } = req.params;
     try {
         await deleteMovie(id); 
-        res.redirect('/modi/principal');
+        res.redirect('/modi');
     } catch (error) {
         res.send('Error al eliminar el elemento');
     }
@@ -50,7 +50,7 @@ app.post('/edit-item/:id', async (req, res) => {
     const { caratula, genero, movieId, title, year } = req.body; 
     try {
         await updateMovie(id, caratula, genero, movieId, title, year); 
-        res.redirect('/modi/principal');
+        res.redirect('/modi');
     } catch (error) {
         res.send('Error al actualizar el elemento');
     }

@@ -16,7 +16,7 @@ const server = gateway({
         },
         {
             prefix: '/modi',
-            target: 'https://modi-aj9i.onrender.com/modi',  
+            target: 'https://modi-aj9i.onrender.com',  
             hooks: {}
         }
     ]
